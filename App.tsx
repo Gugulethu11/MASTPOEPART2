@@ -12,9 +12,9 @@ const UserItem = ({
 }) => (
   <View style={styles.item}>
     <Text style={styles.name}>Name: {name}</Text>
-    <Text style={styles.age}>Price: {price}</Text>
-    <Text style={styles.course}>Course: {course}</Text>
     <Text style={styles.color}>Description: {description}</Text>
+    <Text style={styles.course}>Course: {course}</Text>
+    <Text style={styles.age}>Price: {price}</Text>
 
   <TouchableOpacity style={styles.deletebutton} onPress={onDelete}>
     <Text style={styles.btnText} > Delete </Text>
@@ -25,11 +25,11 @@ const UserItem = ({
 export default function App() {
   // Array of users stored in state
   const [users, setUsers] = useState([
-    { id: "1", name: "Siya", price: 25, description: "Red" , course: "Starter"},
-    { id: "2", name: "Caryn", price: 30, description: "Blue", course: "Main" },
-    { id: "3", name: "Jaco", price: 22, description: "Green", course: "Dessert" },
-    { id: "4", name: "Mihle", price: 28, description: "Yellow", course: "Starter" },
-    { id: "5", name: "Koosie", price: 19, description: "Purple", course: "Main" },
+    { id: "1", name: "Siya", price: 120, description: "Red" , course: "Starter"},
+    { id: "2", name: "Beef Wellington", price: 250, description: "Juicy tenderloin wrapped in mushroom duxelles and encased in a puff pastry crust", course: "Main" },
+    { id: "3", name: "Creme Brulee", price: 80, description: "French delicious creamy vanilla dessert", course: "Dessert" },
+    { id: "4", name: "Classic French Onion Soup", price: 95, description: "Rich, caramelized onion base and goeey cheese topping", course: "Starter" },
+    { id: "5", name: "Filet Mignon with Red Wine Reduction", price: 190, description: "Cooked filet mignon with a rich,red wine reduction.", course: "Main" },
   ]);
 
   // State for input fields
@@ -71,24 +71,24 @@ export default function App() {
           value={newDishName}
           onChangeText={setNewDishName}
         />
-        <TextInput
+         <TextInput
           style={styles.input}
-          placeholder="Enter price"
-          value={newPrice}
-          onChangeText={setNewPrice}
-          keyboardType="numeric"
+          placeholder="Enter description of the dish"
+          value={newDescription}
+          onChangeText={setNewDescription}
         />
         <TextInput
           style={styles.input}
           placeholder="Select course"
           value={newCourse}
           onChangeText={setNewCourse}
-        />
-         <TextInput
+          />
+        <TextInput
           style={styles.input}
-          placeholder="Enter description of the dish"
-          value={newDescription}
-          onChangeText={setNewDescription}
+          placeholder="Enter price"
+          value={newPrice}
+          onChangeText={setNewPrice}
+          keyboardType="numeric"
         />
         <Button title="Add User" onPress={addUser} />
       </View>
