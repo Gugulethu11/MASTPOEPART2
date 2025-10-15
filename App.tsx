@@ -13,7 +13,7 @@ const UserItem = ({
   <View style={styles.item}>
     <Text style={styles.name}>Name: {name}</Text>
     <Text style={styles.age}>Price: {price}</Text>
-    <Text style={styles.name}>Course: {course}</Text>
+    <Text style={styles.course}>Course: {course}</Text>
     <Text style={styles.color}>Description: {description}</Text>
 
   <TouchableOpacity style={styles.deletebutton} onPress={onDelete}>
@@ -146,6 +146,10 @@ const styles = StyleSheet.create({
   age: {
     fontSize: 14,
     color: "#555",
+  },
+  course: {
+    fontSize: 14,
+    color: "#333",
   },
   color: {
     fontSize: 14,
