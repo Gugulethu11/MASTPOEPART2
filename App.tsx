@@ -90,7 +90,7 @@ export default function App() {
           onChangeText={setNewPrice}
           keyboardType="numeric"
         />
-        <Button title="Add User" onPress={addUser} />
+        <Button title="Add Dish" onPress={addUser} />
       </View>
 
       {/* FlatList */}
