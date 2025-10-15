@@ -61,7 +61,7 @@ export default function App() {
 
   return (
      <View style={styles.container}>
-      <Text style={styles.title}> Gugs FlatList</Text>
+      <Text style={styles.title}> Chef Christoffel's Dishes </Text>
 
       {/* Input fields */}
       <View style={styles.inputContainer}>
