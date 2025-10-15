@@ -4,15 +4,17 @@ import { StyleSheet, Text, View, FlatList, TextInput,  Button, TouchableOpacity,
 
 const UserItem = ({
   name,
-  age,
-  favouritecolour,
+  course,
+  price,
+  description,
   onDelete,
 
 }) => (
   <View style={styles.item}>
     <Text style={styles.name}>Name: {name}</Text>
-    <Text style={styles.age}>Age: {age}</Text>
-    <Text style={styles.color}>Favourite Colour: {favouritecolour}</Text>
+    <Text style={styles.age}>Price: {price}</Text>
+    <Text style={styles.name}>Course: {course}</Text>
+    <Text style={styles.color}>Description: {description}</Text>
 
   <TouchableOpacity style={styles.deletebutton} onPress={onDelete}>
     <Text style={styles.btnText} > Delete </Text>
@@ -23,11 +25,11 @@ const UserItem = ({
 export default function App() {
   // Array of users stored in state
   const [users, setUsers] = useState([
-    { id: "1", dishname: "Siya", price: 25, description: "Red" },
-    { id: "2", dishname: "Caryn", price: 30, description: "Blue" },
-    { id: "3", dishname: "Jaco", price: 22, description: "Green" },
-    { id: "4", dishname: "Mihle", price: 28, description: "Yellow" },
-    { id: "5", dishname: "Koosie", price: 19, description: "Purple" },
+    { id: "1", name: "Siya", price: 25, description: "Red" , course: "Starter"},
+    { id: "2", name: "Caryn", price: 30, description: "Blue", course: "Main" },
+    { id: "3", name: "Jaco", price: 22, description: "Green", course: "Dessert" },
+    { id: "4", name: "Mihle", price: 28, description: "Yellow", course: "Starter" },
+    { id: "5", name: "Koosie", price: 19, description: "Purple", course: "Main" },
   ]);
 
   // State for input fields
@@ -41,8 +43,8 @@ export default function App() {
     if (!newDishName || !newDescription || !newCourse || !newPrice) return; // Require all fields
     const newUser = {
       id: (users.length + 1).toString(),
-      dishname: newDishName,
-      description: newDescription
+      name: newDishName,
+      description: newDescription,
       price: parseInt(newPrice),
       course: newCourse,
     };
@@ -50,6 +52,7 @@ export default function App() {
     setNewDishName("");
     setNewDescription("");
     setNewCourse("");
+    setNewPrice("");
   };
 
   const deleteUser = (id) => {
@@ -96,7 +99,7 @@ export default function App() {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <UserItem
-            dishname={item.dishname}
+            name={item.name}
             price={item.price}
             description={item.description}
             course={item.course}
