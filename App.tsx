@@ -23,31 +23,33 @@ const UserItem = ({
 export default function App() {
   // Array of users stored in state
   const [users, setUsers] = useState([
-    { id: "1", name: "Siya", age: 25, favouritecolour: "Red" },
-    { id: "2", name: "Caryn", age: 30, favouritecolour: "Blue" },
-    { id: "3", name: "Jaco", age: 22, favouritecolour: "Green" },
-    { id: "4", name: "Mihle", age: 28, favouritecolour: "Yellow" },
-    { id: "5", name: "Koosie", age: 19, favouritecolour: "Purple" },
+    { id: "1", dishname: "Siya", price: 25, description: "Red" },
+    { id: "2", dishname: "Caryn", price: 30, description: "Blue" },
+    { id: "3", dishname: "Jaco", price: 22, description: "Green" },
+    { id: "4", dishname: "Mihle", price: 28, description: "Yellow" },
+    { id: "5", dishname: "Koosie", price: 19, description: "Purple" },
   ]);
 
   // State for input fields
-  const [newName, setNewName] = useState("");
-  const [newAge, setNewAge] = useState("");
-  const [newColour, setNewColour] = useState("");
+  const [newDishName, setNewDishName] = useState("");
+  const [newDescription, setNewDescription] = useState("");
+  const [newCourse, setNewCourse] = useState("");
+  const [newPrice, setNewPrice] = useState("");
 
   // Function to add new user
   const addUser = () => {
-    if (!newName || !newAge || !newColour) return; // Require all fields
+    if (!newDishName || !newDescription || !newCourse || !newPrice) return; // Require all fields
     const newUser = {
       id: (users.length + 1).toString(),
-      name: newName,
-      age: parseInt(newAge),
-      favouritecolour: newColour,
+      dishname: newDishName,
+      description: newDescription
+      price: parseInt(newPrice),
+      course: newCourse,
     };
     setUsers([...users, newUser]); // Adds a new user to array
-    setNewName("");
-    setNewAge("");
-    setNewColour("");
+    setNewDishName("");
+    setNewDescription("");
+    setNewCourse("");
   };
 
   const deleteUser = (id) => {
@@ -60,27 +62,30 @@ export default function App() {
 
       {/* Input fields */}
       <View style={styles.inputContainer}>
-        <Text> Enter your name: </Text>
         <TextInput
           style={styles.input}
-          placeholder="Enter name"
-          value={newName}
-          onChangeText={setNewName}
+          placeholder="Enter dish name"
+          value={newDishName}
+          onChangeText={setNewDishName}
         />
-        <Text> Enter your age: </Text>
         <TextInput
           style={styles.input}
-          placeholder="Enter age"
-          value={newAge}
-          onChangeText={setNewAge}
+          placeholder="Enter price"
+          value={newPrice}
+          onChangeText={setNewPrice}
           keyboardType="numeric"
         />
-        <Text> Enter your favourite colour: </Text>
         <TextInput
           style={styles.input}
-          placeholder="Enter favourite colour"
-          value={newColour}
-          onChangeText={setNewColour}
+          placeholder="Select course"
+          value={newCourse}
+          onChangeText={setNewCourse}
+        />
+         <TextInput
+          style={styles.input}
+          placeholder="Enter description of the dish"
+          value={newDescription}
+          onChangeText={setNewDescription}
         />
         <Button title="Add User" onPress={addUser} />
       </View>
@@ -91,9 +96,10 @@ export default function App() {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <UserItem
-            name={item.name}
-            age={item.age}
-            favouritecolour={item.favouritecolour}
+            dishname={item.dishname}
+            price={item.price}
+            description={item.description}
+            course={item.course}
             onDelete={() => deleteUser(item.id)}
           />
         )}
