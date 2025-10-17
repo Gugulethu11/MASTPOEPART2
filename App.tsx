@@ -90,9 +90,11 @@ export default function App() {
           onChangeText={setNewPrice}
           keyboardType="numeric"
         />
-        <Button title="Add Dish" onPress={addUser} />
+        <Button style={styles.btnAdd} title="Add Dish" onPress={addUser} />
 
         <Text> Total Menu Items: {users.length} </Text>
+
+        <Text> Average Price : R </Text>
 
       </View>
 
@@ -173,6 +175,10 @@ const styles = StyleSheet.create({
   btnText:{
     color: "white",
     fontWeight: "bold"
+  },
+  btnAdd:{
+    paddingBottom: 20,
+    paddingTop: 20,
   }
 });
 
