@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, FlatList, TextInput,  Button, TouchableOpacity,
 
 
 const UserItem = ({
-  name,
+  dishname,
   course,
   price,
   description,
@@ -11,7 +11,7 @@ const UserItem = ({
 
 }) => (
   <View style={styles.item}>
-    <Text style={styles.name}>Name: {name}</Text>
+    <Text style={styles.name}>Name: {dishname}</Text>
     <Text style={styles.color}>Description: {description}</Text>
     <Text style={styles.course}>Course: {course}</Text>
     <Text style={styles.age}>Price: {price}</Text>
@@ -25,11 +25,11 @@ const UserItem = ({
 export default function App() {
   // Array of users stored in state
   const [users, setUsers] = useState([
-    { id: "1", name: "Siya", price: 120, description: "Red" , course: "Starter"},
-    { id: "2", name: "Beef Wellington", price: 250, description: "Juicy tenderloin wrapped in mushroom duxelles and encased in a puff pastry crust", course: "Main" },
-    { id: "3", name: "Creme Brulee", price: 80, description: "French delicious creamy vanilla dessert", course: "Dessert" },
-    { id: "4", name: "Classic French Onion Soup", price: 95, description: "Rich, caramelized onion base and goeey cheese topping", course: "Starter" },
-    { id: "5", name: "Filet Mignon with Red Wine Reduction", price: 190, description: "Cooked filet mignon with a rich,red wine reduction.", course: "Main" },
+    { id: "1", dishname: "Cabbage Soup", price: 120, description: "Warm, spicy cabbage soup" , course: "Starter"},
+    { id: "2", dishname: "Beef Wellington", price: 250, description: "Juicy tenderloin wrapped in mushroom duxelles and encased in a puff pastry crust", course: "Main" },
+    { id: "3", dishname: "Creme Brulee", price: 80, description: "French delicious creamy vanilla dessert", course: "Dessert" },
+    { id: "4", dishname: "Classic French Onion Soup", price: 95, description: "Rich, caramelized onion base and goeey cheese topping", course: "Starter" },
+    { id: "5", dishname: "Filet Mignon with Red Wine Reduction", price: 190, description: "Cooked filet mignon with a rich,red wine reduction.", course: "Main" },
   ]);
 
   // State for input fields
@@ -43,7 +43,7 @@ export default function App() {
     if (!newDishName || !newDescription || !newCourse || !newPrice) return; // Require all fields
     const newUser = {
       id: (users.length + 1).toString(),
-      name: newDishName,
+      dishname: newDishName,
       description: newDescription,
       price: parseInt(newPrice),
       course: newCourse,
@@ -55,7 +55,7 @@ export default function App() {
     setNewPrice("");
   };
 
-  const deleteUser = (id) => {
+  const deleteUser = (id: any) => {
     setUsers(users.filter(user => user.id !== id))
   }
 
@@ -99,7 +99,7 @@ export default function App() {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <UserItem
-            name={item.name}
+            dishname={item.dishname}
             price={item.price}
             description={item.description}
             course={item.course}
