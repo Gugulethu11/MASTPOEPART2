@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View, FlatList, TextInput,  Button, TouchableOpacity, } from 'react-native';
 
 
+
 const UserItem = ({
   dishname,
   course,
@@ -14,7 +15,7 @@ const UserItem = ({
     <Text style={styles.name}>Name: {dishname}</Text>
     <Text style={styles.color}>Description: {description}</Text>
     <Text style={styles.course}>Course: {course}</Text>
-    <Text style={styles.age}>Price: {price}</Text>
+    <Text style={styles.age}>Price: R {price}</Text>
 
   <TouchableOpacity style={styles.deletebutton} onPress={onDelete}>
     <Text style={styles.btnText} > Delete </Text>
@@ -61,7 +62,7 @@ export default function App() {
 
   return (
      <View style={styles.container}>
-      <Text style={styles.title}> Chef Christoffel's Dishes </Text>
+      <Text style={styles.header} > Chef Christoffel's Dishes </Text>
 
       {/* Input fields */}
       <View style={styles.inputContainer}>
@@ -114,7 +115,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'rgba(81, 148, 109, 1)',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -122,6 +123,12 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: "bold",
     marginBottom: 15,
+  },
+  header:{
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 20,
+    color: "black"
   },
   inputContainer: {
     marginBottom: 20,
@@ -134,7 +141,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   item: {
-    backgroundColor: "#edf1ebff",
+    backgroundColor: "#f4f8f8ff",
     padding: 15,
     marginVertical: 8,
     borderRadius: 8,
@@ -157,7 +164,7 @@ const styles = StyleSheet.create({
   },
 
   deletebutton:{
-    backgroundColor: "red",
+    backgroundColor: "#333",
     padding: 10,
     borderRadius: 5,
     marginTop: 10,
