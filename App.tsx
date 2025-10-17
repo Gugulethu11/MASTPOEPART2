@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, FlatList, TextInput,  Button, TouchableOpacity, } from 'react-native';
 
-
-
 const UserItem = ({
+
   dishname,
   course,
   price,
@@ -92,6 +91,9 @@ export default function App() {
           keyboardType="numeric"
         />
         <Button title="Add Dish" onPress={addUser} />
+
+        <Text> Total Menu Items: {users.length} </Text>
+
       </View>
 
       {/* FlatList */}
@@ -161,14 +163,12 @@ const styles = StyleSheet.create({
     color: "#333",
     fontWeight: "bold",
   },
-
   deletebutton:{
     backgroundColor: "#333",
     padding: 10,
     borderRadius: 5,
     marginTop: 10,
     alignItems: "center"
-
   },
   btnText:{
     color: "white",
