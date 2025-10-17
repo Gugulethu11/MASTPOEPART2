@@ -12,10 +12,10 @@ const UserItem = ({
 
 }) => (
   <View style={styles.item}>
-    <Text style={styles.name}>Name: {dishname}</Text>
-    <Text style={styles.color}>Description: {description}</Text>
+    <Text style={styles.dishname}>Name: {dishname}</Text>
+    <Text style={styles.description}>Description: {description}</Text>
     <Text style={styles.course}>Course: {course}</Text>
-    <Text style={styles.age}>Price: R {price}</Text>
+    <Text style={styles.price}>Price: R {price}</Text>
 
   <TouchableOpacity style={styles.deletebutton} onPress={onDelete}>
     <Text style={styles.btnText} > Delete </Text>
@@ -119,11 +119,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  title: {
-    fontSize: 22,
-    fontWeight: "bold",
-    marginBottom: 15,
-  },
   header:{
     fontSize: 24,
     fontWeight: "bold",
@@ -135,7 +130,7 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 1,
-    borderColor: "#555",
+    borderColor: "#333",
     padding: 10,
     marginBottom: 10,
     borderRadius: 5,
@@ -146,21 +141,25 @@ const styles = StyleSheet.create({
     marginVertical: 8,
     borderRadius: 8,
   },
-  name: {
-    fontSize: 18,
-    fontWeight: "600",
-  },
-  age: {
+  dishname: {
     fontSize: 14,
-    color: "#555",
+    color: "#333",
+    fontWeight: "bold",
+  },
+  price: {
+    fontSize: 14,
+    color: "#333",
+    fontWeight: "bold",
   },
   course: {
     fontSize: 14,
     color: "#333",
+    fontWeight: "bold",
   },
-  color: {
+  description: {
     fontSize: 14,
     color: "#333",
+    fontWeight: "bold",
   },
 
   deletebutton:{
