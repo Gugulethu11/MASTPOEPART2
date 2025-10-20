@@ -18,7 +18,7 @@ const MenuItem = ({
     <Text style={styles.price}>Price: R {price}</Text>
 
   <TouchableOpacity style={styles.deletebutton} onPress={onDelete}>
-    <Text style={styles.btnText} > Delete </Text>
+    <Text style={styles.btnText} > Remove </Text>
   </TouchableOpacity>
   </View>
 );
@@ -117,7 +117,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f0f0f0',
+    backgroundColor: '#bdc004ff',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -133,37 +133,40 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 1,
-    borderColor: "#333",
+    borderColor: "black",
     padding: 10,
-    marginBottom: 10,
-    borderRadius: 5,
+    marginBottom: 15,
+    borderRadius: 7,
   },
   item: {
     backgroundColor: "#fff",
     padding: 15,
     marginVertical: 8,
-    borderRadius: 8,
+    borderRadius: 9,
+  borderColor: "black",
+    borderWidth: 1,
+    alignItems: "center",
     justifyContent: "center",
     width: 350,
   },
   dishname: {
     fontSize: 14,
-    color: "#333",
+    color: "black",
     fontWeight: "bold",
   },
   price: {
     fontSize: 14,
-    color: "#333",
+    color: "black",
     fontWeight: "bold",
   },
   course: {
     fontSize: 14,
-    color: "#333",
+    color: "black",
     fontWeight: "bold",
   },
   description: {
     fontSize: 14,
-    color: "#333",
+    color: "black",
     fontWeight: "bold",
   },
   deletebutton:{
@@ -186,7 +189,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     marginTop: 10,
-    color: "#333",
+    color: "black",
     alignItems: "center",
   }
 });
