@@ -117,7 +117,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'rgba(81, 148, 109, 1)',
+    backgroundColor: '#f0f0f0',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   item: {
-    backgroundColor: "#f4f8f8ff",
+    backgroundColor: "#fff",
     padding: 15,
     marginVertical: 8,
     borderRadius: 8,
@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   deletebutton:{
-    backgroundColor: "#333",
+    backgroundColor: "red",
     padding: 10,
     borderRadius: 5,
     marginTop: 10,
