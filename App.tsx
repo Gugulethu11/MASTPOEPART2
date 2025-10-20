@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, FlatList, TextInput,  Button, TouchableOpacity, } from 'react-native';
+import { StyleSheet, Text, View, FlatList, TextInput,  Button, TouchableOpacity } from 'react-native';
+import { Picker } from '@react-native-picker/picker';
 
 const MenuItem = ({
 
@@ -77,6 +78,11 @@ export default function App() {
           value={newDescription}
           onChangeText={setNewDescription}
         />
+        <Picker selectedValue={newCourse} onValueChange={setNewCourse} style={styles.input}>
+          <Picker.Item label="Starter" value="Starter" />
+          <Picker.Item label="Main" value="Main" />
+          <Picker.Item label="Dessert" value="Dessert"  />
+        </Picker>
         <TextInput
           style={styles.input}
           placeholder="Select course"
