@@ -85,18 +85,12 @@ export default function App() {
         </Picker>
         <TextInput
           style={styles.input}
-          placeholder="Select course"
-          value={newCourse}
-          onChangeText={setNewCourse}
-          />
-        <TextInput
-          style={styles.input}
           placeholder="Enter price"
           value={newPrice}
           onChangeText={setNewPrice}
           keyboardType="numeric"
         />
-        <Button style={styles.btnAdd} title="Add Dish" onPress={addItem} />
+        <Button title="Add Dish" onPress={addItem} />
 
         <Text style={styles.totalText}> Total Menu Items: {menu.length} </Text>
 
@@ -131,7 +125,8 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "bold",
     marginBottom: 20,
-    color: "black"
+    color: "black",
+    paddingTop: 20,
   },
   inputContainer: {
     marginBottom: 20,
@@ -148,6 +143,8 @@ const styles = StyleSheet.create({
     padding: 15,
     marginVertical: 8,
     borderRadius: 8,
+    justifyContent: "center",
+    width: 350,
   },
   dishname: {
     fontSize: 14,
@@ -174,7 +171,8 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 5,
     marginTop: 10,
-    alignItems: "center"
+    alignItems: "center",
+    justifyContent: "center",
   },
   btnText:{
     color: "white",
@@ -188,6 +186,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     marginTop: 10,
+    color: "#333",
+    alignItems: "center",
   }
 });
 
