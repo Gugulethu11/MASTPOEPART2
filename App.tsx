@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, FlatList, TextInput,  Button, TouchableOpacity, } from 'react-native';
 
-const UserItem = ({
+const MenuItem = ({
 
   dishname,
   course,
@@ -24,7 +24,7 @@ const UserItem = ({
 
 export default function App() {
   // Array of users stored in state
-  const [users, setUsers] = useState([
+  const [menu, setMenu] = useState([
     { id: "1", dishname: "Cabbage Soup", price: 120, description: "Warm, spicy cabbage soup" , course: "Starter"},
     { id: "2", dishname: "Beef Wellington", price: 250, description: "Juicy tenderloin wrapped in mushroom duxelles and encased in a puff pastry crust", course: "Main" },
     { id: "3", dishname: "Creme Brulee", price: 80, description: "French delicious creamy vanilla dessert", course: "Dessert" },
@@ -39,24 +39,24 @@ export default function App() {
   const [newPrice, setNewPrice] = useState("");
 
   // Function to add new user
-  const addUser = () => {
+  const addItem = () => {
     if (!newDishName || !newDescription || !newCourse || !newPrice) return; // Require all fields
-    const newUser = {
-      id: (users.length + 1).toString(),
+    const newItem = {
+      id: (menu.length + 1).toString(),
       dishname: newDishName,
       description: newDescription,
       price: parseInt(newPrice),
       course: newCourse,
     };
-    setUsers([...users, newUser]); // Adds a new user to array
+    setMenu([...menu, newItem]); // Adds a new user to array
     setNewDishName("");
     setNewDescription("");
     setNewCourse("");
     setNewPrice("");
   };
 
-  const deleteUser = (id: any) => {
-    setUsers(users.filter(user => user.id !== id))
+  const deleteItem = (id: any) => {
+    setMenu(menu.filter(user => user.id !== id))
   }
 
   return (
@@ -90,25 +90,23 @@ export default function App() {
           onChangeText={setNewPrice}
           keyboardType="numeric"
         />
-        <Button style={styles.btnAdd} title="Add Dish" onPress={addUser} />
+        <Button style={styles.btnAdd} title="Add Dish" onPress={addItem} />
 
-        <Text> Total Menu Items: {users.length} </Text>
-
-        <Text> Average Price : R </Text>
+        <Text style={styles.totalText}> Total Menu Items: {menu.length} </Text>
 
       </View>
 
       {/* FlatList */}
       <FlatList
-        data={users}
+        data={menu}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <UserItem
+          <MenuItem
             dishname={item.dishname}
             price={item.price}
             description={item.description}
             course={item.course}
-            onDelete={() => deleteUser(item.id)}
+            onDelete={() => deleteItem(item.id)}
           />
         )}
       />
@@ -179,6 +177,11 @@ const styles = StyleSheet.create({
   btnAdd:{
     paddingBottom: 20,
     paddingTop: 20,
+  },
+  totalText :{
+    fontSize: 16,
+    fontWeight: "bold",
+    marginTop: 10,
   }
 });
 
