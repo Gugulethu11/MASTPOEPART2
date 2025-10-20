@@ -190,6 +190,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginTop: 10,
     color: "black",
+    justifyContent: "center",
     alignItems: "center",
   }
 });
